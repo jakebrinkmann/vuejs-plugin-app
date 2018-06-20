@@ -3,7 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 
+// Add the component from private myNpmIsGreat registry
+import PreviewComponent from "vuejs-plugin-01";
+
 Vue.config.productionTip = false
+Vue.use(PreviewComponent)
 
 /* eslint-disable no-new */
 new Vue({
