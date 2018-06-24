@@ -39,17 +39,24 @@
 <body>
     <div id="shopping-list">
         <div class="header">
+            <!-- double mustache syntax -->
             <h1>{{ header.toLocaleUpperCase() }}</h1>
+            <!-- vue methods -->
             <button class="btn btn-primary" v-if="state === 'default'" @click="changeState('edit')">Add item</button>
             <button class="btn btn-cancel" v-else @click="changeState('default')">Cancel</button>
         </div>
         <div v-if="state === 'edit'" class="add-item-for">
+            <!-- v-on shorthand @ for binding events  -->
             <input v-model="newItem" type="text" @keyup.enter="saveItem" placeholder="Add an item">
+            <!-- v-bind for attribute bindings -->
             <button class="btn btn-primary" v-bind:disabled="newItem.length === 0" @click="saveItem">Save Item</button>
         </div>
         <ul>
+            <!-- dynamic classes with :class= (object syntax is {}, array is []) -->
             <li v-for="item in reversedItems" :class="{strikeout: item.purchased}" @click="togglePurchased(item)">{{ item.label }}</li>
+            <!-- reversedItems is a computed property -->
         </ul>
+        <!-- conditional rendering -->
         <p v-if="items.length === 0">Nice job! You've bought all your items</p>
     </div>
     <script src="https://unpkg.com/vue"></script>
