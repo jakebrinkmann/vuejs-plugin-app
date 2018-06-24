@@ -1,21 +1,11 @@
 # vuejs-plugin-app
 
-> Parent App to import a VueJS component via npm 
+This application aims to import components from [vuejs-plugin-01][0], 
+as a learning exercise on making extensible modules in VueJS. 
 
-## Build Setup
+## References
 
-``` bash
-# install dependencies
-npm install
+* [Vue.js Fundamentals -- Free Course][1]
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+[0]: https://github.com/jakebrinkmann/vuejs-plugin-01/
+[1]: https://vueschool.io/courses/vuejs-fundamentals

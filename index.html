@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>vuejs-plugin-app</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learning VueJS</title>
+</head>
+<body>
+    <div id="shopping-list">
+        <h1>{{ header }}</h1>
+        <input type="text" v-model="header">
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        var shoppingList = new Vue({
+            el: '#shopping-list',
+            data: {
+                header: 'Vue is ready to party!'
+            }
+        })
+    </script>
+</body>
 </html>
