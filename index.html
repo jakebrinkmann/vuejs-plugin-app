@@ -6,38 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Learning VueJS</title>
     <style>
-        .btn {
+        body {
+            color: #fff;
+            background-color: #333;
+        }
+        div #shoppping-list {
+            display: block;
+            background-color: #555;
+        }
+        .btn-primary{
             color: #fff;
             background-color: #337ab7;
             border-color: #2e6da4;
+        }
+        .btn-cancel{
+            color: #fff;
+            background-color: #d9534f;
+            border-color: #d43f3a;
         }
     </style> 
 </head>
 <body>
     <div id="shopping-list">
-        <h1>{{ header.toLocaleUpperCase() }}</h1>
-        <input v-model="newItem" type="text" @keyup.enter="saveItem" placeholder="Add an item">
-        <button class="btn btn-primary" @click="saveItem">Save Item</button>
+        <div class="header">
+            <h1>{{ header.toLocaleUpperCase() }}</h1>
+            <button class="btn btn-primary" v-if="state === 'default'" @click="changeState('edit')">Add item</button>
+            <button class="btn btn-cancel" v-else @click="changeState('default')">Cancel</button>
+        </div>
+        <div v-if="state === 'edit'" class="add-item-for">
+            <input v-model="newItem" type="text" @keyup.enter="saveItem" placeholder="Add an item">
+            <button class="btn btn-primary" @click="saveItem">Save Item</button>
+        </div>
         <ul>
             <li v-for="item in items">{{ item }}</li>
         </ul>
+        <p v-if="items.length === 0">Nice job! You've bought all your items</p>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         var shoppingList = new Vue({
             el: '#shopping-list',
             data: {
+                state: 'default',
                 header: 'Shopping list app',
                 newItem: '',
                 items: [
-                    '10 party hats',
-                    '2 board games',
-                    '20 cups',
+                    // '10 party hats',
+                    // '2 board games',
+                    // '20 cups',
                 ]
             },
             methods: {
                 saveItem: function() {
                     this.items.push(this.newItem);
+                    this.newItem = '';
+                },
+                changeState: function(newState) {
+                    this.state = newState;
                     this.newItem = '';
                 }
             }
