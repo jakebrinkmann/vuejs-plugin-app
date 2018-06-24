@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Learning VueJS</title>
+    <style>
+        .btn {
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+        }
+    </style> 
 </head>
 <body>
     <div id="shopping-list">
         <h1>{{ header.toLocaleUpperCase() }}</h1>
-        <input v-model="newItem" type="text" @keyup.enter="items.push(newItem)" placeholder="Add an item">
-        <button class="btn btn-primary" @click="items.push(newItem)">Save Item</button>
+        <input v-model="newItem" type="text" @keyup.enter="saveItem" placeholder="Add an item">
+        <button class="btn btn-primary" @click="saveItem">Save Item</button>
         <ul>
             <li v-for="item in items">{{ item }}</li>
         </ul>
@@ -27,6 +34,12 @@
                     '2 board games',
                     '20 cups',
                 ]
+            },
+            methods: {
+                saveItem: function() {
+                    this.items.push(this.newItem);
+                    this.newItem = '';
+                }
             }
         })
     </script>
