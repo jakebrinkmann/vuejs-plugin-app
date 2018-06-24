@@ -9,6 +9,7 @@
 <body>
     <div id="shopping-list">
         <h1>{{ header.toLocaleUpperCase() }}</h1>
+        <input v-model="newItem" type="text" placeholder="Add an item">
         <ul>
             <li v-for="item in items">{{ item }}</li>
         </ul>
@@ -19,6 +20,7 @@
             el: '#shopping-list',
             data: {
                 header: 'Shopping list app',
+                newItem: '',
                 items: [
                     '10 party hats',
                     '2 board games',
