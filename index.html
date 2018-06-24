@@ -7,19 +7,26 @@
     <title>Learning VueJS</title>
     <style>
         body {
-            color: #fff;
-            background-color: #333;
+            color: #404040;
+            background-color: #bfdcf6;
         }
-        div #shoppping-list {
-            display: block;
-            background-color: #555;
+        div#shopping-list {
+            background-color: #eaeaea;
+            border: 1px solid #b5d1ea;
+            border-radius: .25rem;
+            margin: 10px;
         }
-        .btn-primary{
+        .btn.btn-primary {
             color: #fff;
             background-color: #337ab7;
             border-color: #2e6da4;
         }
-        .btn-cancel{
+        .btn:disabled {
+            background-color: #333;
+            cursor: not-allowed;
+            border-color: #212121;
+        }
+        .btn.btn-cancel {
             color: #fff;
             background-color: #d9534f;
             border-color: #d43f3a;
@@ -35,7 +42,7 @@
         </div>
         <div v-if="state === 'edit'" class="add-item-for">
             <input v-model="newItem" type="text" @keyup.enter="saveItem" placeholder="Add an item">
-            <button class="btn btn-primary" @click="saveItem">Save Item</button>
+            <button class="btn btn-primary" v-bind:disabled="newItem.length === 0" @click="saveItem">Save Item</button>
         </div>
         <ul>
             <li v-for="item in items">{{ item }}</li>
